@@ -38,7 +38,7 @@ then
     exit 1
 fi
 
-yum update
+yum update -y
 
 VALIDATE $? "yum update"
 
