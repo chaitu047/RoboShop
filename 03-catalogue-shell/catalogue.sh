@@ -82,9 +82,11 @@ VALIDATE $? "create service config for cataloue"
 
 cd $PWD
 
+VALIDATE $? "change to git directory $(pwd)"
+
 sed -i "s/<MONGODB-SERVER-IPADDRESS>/$MONGO_IP/g" catalogue-conf
 
-VALIDATE $? "change to git directory"
+VALIDATE $? "modify catalogue config"
 
 cat catalogue-conf > /etc/systemd/system/catalogue.service
 
