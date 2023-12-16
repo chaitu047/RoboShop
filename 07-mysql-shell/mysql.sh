@@ -38,6 +38,10 @@ then
     exit 1
 fi
 
+yum install update
+
+VALIDATE $? "yum update"
+
 touch /etc/yum.repos.d/mysql.repo
 
 VALIDATE $? "Add mysql repo"
