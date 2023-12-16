@@ -30,7 +30,7 @@ then
     VALIDATE $? "RoboShop directory creation"
 fi
 
-exec &> LOGFILE
+exec &> $LOGFILE
 
 if [ $(id -u) -ne 0 ]
 then
