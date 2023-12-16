@@ -50,7 +50,7 @@ cat mysql-repo >> /etc/yum.repos.d/mysql.repo
 
 VALIDATE $? "Configure mysql repo"
 
-dnf install mysql-community-server -y
+yum install mysql-community-server -y
 
 VALIDATE $? "Install mysql community server"
 
