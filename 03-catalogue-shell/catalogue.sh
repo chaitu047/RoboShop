@@ -68,6 +68,10 @@ cd /app
 
 VALIDATE $? "change to /app directory"
 
+unzip /tmp/catalogue.zip
+
+VALIDATE $? "unzip catalogue"
+
 npm install
 
 VALIDATE $? "npm install"
@@ -82,7 +86,7 @@ sed -i "s/<MONGODB-SERVER-IPADDRESS>/$MONGO_IP/g" catalogue-conf
 
 VALIDATE $? "change to git directory"
 
-cat catalogue-conf >> /etc/systemd/system/catalogue.service
+cat catalogue-conf > /etc/systemd/system/catalogue.service
 
 VALIDATE $? "create config file for catalogue service"
 
