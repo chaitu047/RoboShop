@@ -25,12 +25,12 @@ VALIDATE(){
 
 if [ ! -d "/var/log/roboshop/" ]
 then
-    mkdir -p "/var/log/roboshop/"
+    sudo mkdir -p "/var/log/roboshop/"
 
     VALIDATE $? "RoboShop directory creation"
 fi
 
-exec &> $LOGFILE
+sudo exec &> $LOGFILE
 
 if [ $(id -u) -ne 0 ]
 then
@@ -38,30 +38,30 @@ then
     exit 1
 fi
 
-yum update -y
+sudo yum update -y
 
 VALIDATE $? "yum update"
 
-touch /etc/yum.repos.d/mysql.repo
+sudo touch /etc/yum.repos.d/mysql.repo
 
 VALIDATE $? "Add mysql repo"
 
-cat mysql-repo >> /etc/yum.repos.d/mysql.repo
+sudo cat mysql-repo > /etc/yum.repos.d/mysql.repo
 
 VALIDATE $? "Configure mysql repo"
 
-yum install mysql -y
+sudo yum install mysql -y
 
 VALIDATE $? "Install mysql"
 
-systemctl enable mysqld
+sudo systemctl enable mysqld
 
 VALIDATE $? "enable mysqld service"
 
-systemctl start mysqld
+sudo systemctl start mysqld
 
 VALIDATE $? "start mysqld service"
 
-mysql_secure_installation --set-root-pass RoboShop@1
+sudo mysql_secure_installation --set-root-pass RoboShop@1
 
 VALIDATE $? "set mysql root password"
