@@ -39,7 +39,7 @@ then
 fi
 
 sudo yum update -y
-
+0
 VALIDATE $? "yum update"
 
 sudo touch /etc/yum.repos.d/mysql.repo
