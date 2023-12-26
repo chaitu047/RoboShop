@@ -91,11 +91,11 @@ MONGO_IP=$(grep -i 'MONGO_IP' redis-IP | cut -d '=' -f 2)
 
 VALIDATE $? "Retrieve MONGO_IP"
 
-sed -i "s/<REDIS-SERVER-IP>/$REDIS_IP/g" user-service-config
+sed -i "s/<REDIS-SERVER-IP>/$REDIS_IP/g" /etc/systemd/system/user.service
 
 VALIDATE $? "Replace REDIS_IP"
 
-sed -i "s/<MONGODB-SERVER-IP-ADDRESS>/$MONGO_IP/g" user-service-config
+sed -i "s/<MONGODB-SERVER-IP-ADDRESS>/$MONGO_IP/g" /etc/systemd/system/user.service
 
 VALIDATE $? "configure user.service"
 
