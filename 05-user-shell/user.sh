@@ -79,7 +79,7 @@ npm install
 
 VALIDATE $? "install npm"
 
-cp user-service-config /etc/systemd/system/user.service
+cp ./user-service-config /etc/systemd/system/user.service
 
 VALIDATE $? "copy user.service config"
 
@@ -113,7 +113,7 @@ systemctl start user
 
 VALIDATE $? "start user service"
 
-cp mongo-repo /etc/yum.repos.d/mongo.repo
+cp ./mongo-repo /etc/yum.repos.d/mongo.repo
 
 VALIDATE $? "copy mongo-repo"
 
