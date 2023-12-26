@@ -24,7 +24,7 @@ VALIDATE(){
     fi
 }
 
-if [ ! -d "/var/log/roboshop/"]
+if [ ! -d "/var/log/roboshop/" ]
 then
     mkdir -p "/var/log/roboshop/"
 
