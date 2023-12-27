@@ -97,9 +97,9 @@ VALIDATE $? "Replace REDIS_IP"
 
 sed -i "s/<MONGODB-SERVER-IP-ADDRESS>/$MONGO_IP/g" /etc/systemd/system/user.service
 
-VALIDATE $? "configure user.service"
-
 VALIDATE $? "Replace MONGO_IP"
+
+VALIDATE $? "configure user.service"
 
 systemctl daemon-reload
 
